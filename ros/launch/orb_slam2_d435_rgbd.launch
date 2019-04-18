@@ -14,16 +14,18 @@
        <param name="localize_only" type="bool" value="false" />
        <param name="reset_map" type="bool" value="false" />
        <param name="pointcloud_frame_id" type="string" value="odom_vision" />
-       <param name="camera_frame_id" type="string" value="camera_link" />
+       <param name="camera_frame_id" type="string" value="camera1" />
        <param name="min_num_kf_in_map" type="int" value="5" />
   </node>
 
-<!-- In ros convention, camera_link frame is x forward and z up, suffix "_optical" is z forward and y down. -->
+<!-- In ros convention, "camera_link" frame is x forward and z up, suffix "_optical" is z forward and y down.
+      Check static_transform in camera launch topics. Since "camera_link" has been used in camera itself but
+      not exactly the correct frame we want, to avoid confusion, we use new camera frame name. -->
 
 <!--
-    <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory_server_orb_slam" output="screen" ns="est" >
+    <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory_server_orb_slam" output="screen" ns="orb_slam" >
         <param name="/target_frame_name" value="odom_vision" />
-        <param name="/source_frame_name" value="camera_link" />
+        <param name="/source_frame_name" value="camera_1" />
         <param name="/trajectory_update_rate" value="20.0" />
         <param name="/trajectory_publish_rate" value="20.0" />
     </node>
