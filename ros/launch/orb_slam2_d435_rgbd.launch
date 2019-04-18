@@ -13,15 +13,17 @@
        <param name="publish_pose" type="bool" value="true" />
        <param name="localize_only" type="bool" value="false" />
        <param name="reset_map" type="bool" value="false" />
-       <param name="pointcloud_frame_id" type="string" value="map" />
-       <param name="camera_frame_id" type="string" value="body" />
+       <param name="pointcloud_frame_id" type="string" value="odom_vision" />
+       <param name="camera_frame_id" type="string" value="camera_link" />
        <param name="min_num_kf_in_map" type="int" value="5" />
   </node>
 
+<!-- In ros convention, camera_link frame is x forward and z up, suffix "_optical" is z forward and y down. -->
+
 <!--
     <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory_server_orb_slam" output="screen" ns="est" >
-        <param name="/target_frame_name" value="map" />
-        <param name="/source_frame_name" value="body" />
+        <param name="/target_frame_name" value="odom_vision" />
+        <param name="/source_frame_name" value="camera_link" />
         <param name="/trajectory_update_rate" value="20.0" />
         <param name="/trajectory_publish_rate" value="20.0" />
     </node>
